@@ -1,10 +1,13 @@
 # Gecko-Thermal-Monocular
 The Gecko is an opensource thermal monocular. It features a 1:1 image, digital zoom, color pallets, and video recording. The housing is based around the DIY standard Hdaniee Mini2 thermal cameras, 0.39" micro OLED, and the NP18 lens. The software and controls are based around the JacobOTW BCOTI >> https://github.com/Jacob-OTW/BCOTI ,  but used in a standalone monocular form factor.
 
-<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/78af3ac3-9a10-418f-ba9d-b474165d2874" />
-<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/2bb93d35-d2d0-409f-b64e-c810f04d16d2" />
-<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/447725cd-6c37-4f8d-b690-af8fd4607e03" />
-<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/370b0c11-509e-4738-b098-899b12e2e256" />
+<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/21ff8a33-6ccc-4398-af90-d936a225ea72" />
+<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/87d28182-701c-433f-8b85-3effc9024394" />
+<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/e37db837-70ba-407e-aedf-c7d0c0c3d4d8" />
+<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/b481beb3-77f7-4d5c-8775-2c107af9ed27" />
+
+
+
 
 Thermal Core: 
 https://www.hdaniee.com/p6-uc-series.html
