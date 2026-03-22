@@ -1,0 +1,19 @@
+Flash the ESP32-C3 Super Mini via https://esptool.spacehuhn.com/
+
+Go to isit: esp.huhn.me
+Hold BOOT
+Plug in USB
+Release BOOT
+
+Click Connect → select ESP32 serial port
+
+Load files with offsets:
+
+0x0 → bootloader.bin
+0x8000 → partition-table.bin
+0x10000 → gecko.bin
+
+Click ERASE
+Click PROGRAM
+
+Done.
