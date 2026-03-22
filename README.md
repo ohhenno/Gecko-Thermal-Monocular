@@ -3,6 +3,7 @@ The Gecko is an opensource thermal monocular. It features a 1:1 image, digital z
 
 
 Thermal Core:
+
 https://www.hdaniee.com/p6-uc-series.html
 
 Oled Screen:       
