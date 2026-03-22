@@ -1,4 +1,3 @@
-<img width="862" height="980" alt="image" src="https://github.com/user-attachments/assets/1f0ae8df-5497-43b4-a8fa-a0426b7409a1" />
+Print these at 0.16 layer height in PETG for best results.
 
-
-
+<img width="860" height="980" alt="image" src="https://github.com/user-attachments/assets/db018147-0843-44d3-bc67-04eab58b5081" />
