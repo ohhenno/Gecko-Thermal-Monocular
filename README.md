@@ -4,7 +4,7 @@ The Gecko is an opensource thermal monocular. It features a 256 Mini2 Thermal Co
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/21ff8a33-6ccc-4398-af90-d936a225ea72" />
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/87d28182-701c-433f-8b85-3effc9024394" />
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/e37db837-70ba-407e-aedf-c7d0c0c3d4d8" />
-<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/e08951f2-3962-46fb-85c7-cda1bb488f56" />
+<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/2c80c966-5193-4ee8-84d6-4e7e728f41e4" />
 
 
 Thermal Core:
