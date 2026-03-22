@@ -4,7 +4,8 @@ The Gecko is an opensource thermal monocular. It features a 1:1 image, digital z
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/21ff8a33-6ccc-4398-af90-d936a225ea72" />
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/87d28182-701c-433f-8b85-3effc9024394" />
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/e37db837-70ba-407e-aedf-c7d0c0c3d4d8" />
-<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/b481beb3-77f7-4d5c-8775-2c107af9ed27" />
+<img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/e08951f2-3962-46fb-85c7-cda1bb488f56" />
+
 
 Thermal Core:
 https://shorturl.at/Mn3Rv (Mini2 256)
