@@ -1,5 +1,5 @@
-# Gecko-Thermal-Monocular
-The Gecko is an opensource thermal monocular. It features a 256 Mini2 Thermal Core (V2 is P6 640), digital zoom, and video recording. The hardware is loosely based around the Lupus Gremlin >> https://shorturl.at/PMXlo , Hdaniee thermal camera (Mini2 256, soon to be P6), 0.39" micro OLED, and the NP18 lens. The software and controls are based around the JacobOTW BCOTI >> https://github.com/Jacob-OTW/BCOTI , but used in a standalone monocular form factor.
+# TAC 640 (upgraded gecko)
+The TAC-640 is an opensource thermal augmented camera. It features a P6 Thermal Core, digital zoom, and video recording. The hardware is based around the Hdaniee P6 thermal camera, 0.39" micro OLED, and the NP18 lens.
 
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/21ff8a33-6ccc-4398-af90-d936a225ea72" />
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/87d28182-701c-433f-8b85-3effc9024394" />
