@@ -1,6 +1,5 @@
 Flash the ESP32-C3 Super Mini via https://esptool.spacehuhn.com/
 
-Go to isit: esp.huhn.me
 Hold BOOT
 Plug in USB
 Release BOOT
