@@ -36,7 +36,7 @@ microsd extender (only required if using DVR):
 https://amazon.com/dp/B0D7YZ5PG3
 
 heat inserts:      
-https://amazon.com/dp/B0D7YZ5PG3https
+[https://amazon.com/dp/B0D7YZ5PG3https](https://acesse.one/948mi1z)
 
 m2.5 x 6 bolts:    
 https://amazon.com/dp/B0GCSRG1WD
