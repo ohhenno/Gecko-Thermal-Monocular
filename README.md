@@ -27,7 +27,7 @@ Runcam DVR (optional):
 https://www.aliexpress.us/item/3256809185467125.html
 
 Buttons (3):       
-https://www.aliexpress.us/item/3256809185467125.htmlhttps://www.aliexpress.us/item/3256806708603327.html
+[https://www.aliexpress.us/item/3256809185467125.htmlhttps://www.aliexpress.us/item/3256806708603327.html](https://s.click.aliexpress.com/e/_c3XvcmrD)
 
 Dial (20k):        
 https://www.aliexpress.us/item/3256803337433740.html
