@@ -50,5 +50,6 @@ https://amazon.com/dp/B0FSDNXKJY
 wire:              
 https://amazon.com/dp/B01KQ2JNLI
 
-<img width="1458" height="1143" alt="image" src="https://github.com/user-attachments/assets/099eeb6b-986d-41d3-a23d-dd9f158564f6" />
+<img width="1429" height="1128" alt="image" src="https://github.com/user-attachments/assets/b0eabb19-590a-4c99-99f2-658ee891185a" />
+
 
