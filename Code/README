@@ -10,7 +10,7 @@ Load files with offsets:
 
 0x0 → bootloader.bin
 0x8000 → partition-table.bin
-0x10000 → gecko.bin
+0x10000 → TAC640
 
 Click ERASE
 Click PROGRAM
