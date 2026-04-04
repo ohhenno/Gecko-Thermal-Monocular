@@ -6,8 +6,8 @@ The TAC-640 is an open-source thermal monocular featuring a P6 thermal core, dig
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/e37db837-70ba-407e-aedf-c7d0c0c3d4d8" />
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/2c80c966-5193-4ee8-84d6-4e7e728f41e4" />
 
-P6 Thermal System — Operator Manual
-<><><><><><><><><><><><><><><><><><>
+ 
+
 1. Power-On Behavior
       Turn the potentiometer fully clockwise to power on the device.
       System initialization time: ~6 seconds
