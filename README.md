@@ -6,6 +6,101 @@ The TAC-640 is an opensource thermal monocular. It features a P6 Thermal Core, d
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/e37db837-70ba-407e-aedf-c7d0c0c3d4d8" />
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/2c80c966-5193-4ee8-84d6-4e7e728f41e4" />
 
+🔥 P6 Thermal System — Operator Manual
+1. 🟢 Power On Behavior
+
+Twist the Potentiometer all the way to max to power on:
+System initializes (≈6 seconds)
+Default image settings are applied:
+
+Brightness: 70
+Contrast: 64
+Enhancement: 80
+Denoise: 40
+
+Zoom starts at 1.0x
+Palette starts at White Hot
+Auto calibration (NUC) runs every 60 seconds
+
+2. 🎮 Controls Overview
+Buttons:
+
+ZOOM button - closest button to front
+MULTI button - middle button
+Recording button - farthest back
+Rotary knob (potentiometer) - controls brigthness and contrast
+
+3. 🔍 ZOOM + OLED BRIGHTNESS CONTROL
+
+▶️ Single Press (ZOOM)
+
+Cycles zoom levels:
+1.0x → 2.0x → 4.0x → repeat
+
+⏱️ Hold ZOOM (Brightness Up)
+
+Hold for ~1 second
+OLED brightness increases one step
+
+Continue holding:
+Brightness increases every 1 second
+Double Tap ZOOM (Brightness Down)
+OLED brightness decreases one step
+
+4. 🎨 PALETTE CONTROL
+
+MULTI Button (Short Press)
+
+Cycles full palette modes:
+White Hot
+Black Hot
+Rainbow
+Green Hot
+Red Hot
+Iron Red
+
+5. 🎛️ IMAGE ADJUSTMENT (KNOB)
+
+The rotary knob controls image tuning.
+
+▶️ Normal (No button held)
+Adjusts Brightness
+
+▶️ Hold MULTI + Turn Knob
+Adjusts Contrast
+
+6. 🎥 RECORDING FEEDBACK
+▶️ FLASH Button
+
+Toggles recording state of the DVR.
+Visual Feedback (via palette flash)
+
+Start recording > 3 slow flashes
+Stop recording > 5 fast flashes
+
+7. 🔧 CALIBRATION (NUC)
+   
+▶️ Hold MULTI (3 seconds)
+
+Triggers manual NUC calibration
+Image will briefly freeze
+Sensor recalibrates
+Image quality improves (removes noise/patterns)
+
+▶️ Auto NUC
+Runs automatically every 60 seconds
+
+8. 🧩 SUMMARY (QUICK REFERENCE)
+Action	Result
+ZOOM press	Change zoom
+ZOOM hold	Brightness up (OLED)
+ZOOM double tap	Brightness down (OLED)
+PALETTE press	Toggle white/black hot
+MULTI press	Cycle palettes
+MULTI hold	NUC calibration
+Knob	Brightness
+MULTI + knob	Contrast
+FLASH press	Recording toggle
 
 Thermal Core:
 https://shorturl.at/Mn3Rv (Mini2 256)
