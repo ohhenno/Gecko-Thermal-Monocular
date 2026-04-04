@@ -10,8 +10,7 @@ The TAC-640 is an open-source thermal monocular featuring a P6 thermal core, dig
 
 1. Power-On Behavior
       Turn the potentiometer fully clockwise to power on the device.
-      System initialization time: ~6 seconds
-      
+      System initialization time: ~6 seconds      
       Default image settings:
       Brightness: 70
       Contrast: 64
@@ -32,8 +31,7 @@ The TAC-640 is an open-source thermal monocular featuring a P6 thermal core, dig
 3. Zoom and OLED Brightness Control
       Single Press (Zoom)
       Cycles zoom levels:
-      1.0× → 2.0× → 4.0× → repeat
-      
+      1.0× → 2.0× → 4.0× → repeat      
       Hold Zoom (Brightness Up)
       Hold for ~1 second
       OLED brightness increases one step
@@ -53,15 +51,13 @@ The TAC-640 is an open-source thermal monocular featuring a P6 thermal core, dig
 
 5. Image Adjustment (Knob) 
       Normal Operation
-      Adjusts brightness
-      
+      Adjusts brightness    
       Hold Multi + Turn Knob
       Adjusts contrast
-
-6. Recording Feedback 
+   
+7. Recording Feedback 
       Record Button
-      Toggles the external DVR recording state.
-      
+      Toggles the external DVR recording state.   
       Visual Feedback (via palette flash):
       Start recording → 3 slow flashes
       Stop recording → 5 fast flashes
@@ -71,8 +67,7 @@ The TAC-640 is an open-source thermal monocular featuring a P6 thermal core, dig
       Hold the Multi button for 3 seconds:
       Image briefly freezes
       Sensor recalibrates
-      Fixed-pattern noise is reduced
-      
+      Fixed-pattern noise is reduced      
       Automatic Calibration
       Runs automatically every 60 seconds
    
