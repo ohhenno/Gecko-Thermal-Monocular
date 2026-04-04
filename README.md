@@ -1,5 +1,4 @@
 TAC-640 (Upgraded Gecko)
-
 The TAC-640 is an open-source thermal monocular featuring a P6 thermal core, digital zoom, and video recording capability. The hardware platform is built around the Hdaniee P6 thermal camera, a 0.39" micro OLED display, and an NP18 lens.
 
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/21ff8a33-6ccc-4398-af90-d936a225ea72" />
@@ -9,7 +8,6 @@ The TAC-640 is an open-source thermal monocular featuring a P6 thermal core, dig
 
 P6 Thermal System — Operator Manual
 1. Power-On Behavior
-
       Turn the potentiometer fully clockwise to power on the device.
       System initialization time: ~6 seconds
       
@@ -23,8 +21,7 @@ P6 Thermal System — Operator Manual
       Automatic calibration (NUC): every 60 seconds
 
 2. Controls Overview
-      Buttons:
-      
+      Buttons:     
       Zoom Button — front-most button
       Multi Button — center button
       Record Button — rear button
@@ -32,7 +29,6 @@ P6 Thermal System — Operator Manual
       Rotary Knob (Potentiometer) — controls brightness and contrast
 
 3. Zoom and OLED Brightness Control
-
       Single Press (Zoom)
       Cycles zoom levels:
       1.0× → 2.0× → 4.0× → repeat
@@ -45,8 +41,7 @@ P6 Thermal System — Operator Manual
       OLED brightness decreases one step
 
 4. Palette Control
-      Multi Button (Short Press)
-      
+      Multi Button (Short Press)   
       Cycles through palette modes:
       White Hot
       Black Hot
@@ -55,16 +50,14 @@ P6 Thermal System — Operator Manual
       Red Hot
       Iron Red
 
-5. Image Adjustment (Knob)
-   
+5. Image Adjustment (Knob) 
       Normal Operation
       Adjusts brightness
       
       Hold Multi + Turn Knob
       Adjusts contrast
 
-6. Recording Feedback
-   
+6. Recording Feedback 
       Record Button
       Toggles the external DVR recording state.
       
@@ -72,8 +65,7 @@ P6 Thermal System — Operator Manual
       Start recording → 3 slow flashes
       Stop recording → 5 fast flashes
 
-8. Calibration (NUC)
-   
+8. Calibration (NUC) 
       Manual Calibration
       Hold the Multi button for 3 seconds:
       Image briefly freezes
@@ -82,7 +74,7 @@ P6 Thermal System — Operator Manual
       
       Automatic Calibration
       Runs automatically every 60 seconds
-
+   
 8. Quick Reference
       Action	Result
       Zoom press	Change zoom
