@@ -10,17 +10,17 @@ The TAC-640 is an open-source thermal monocular featuring a P6 thermal core, dig
 P6 Thermal System — Operator Manual
 1. Power-On Behavior
 
-Turn the potentiometer fully clockwise to power on the device.
-System initialization time: ~6 seconds
-
-Default image settings:
-Brightness: 70
-Contrast: 64
-Enhancement: 80
-Denoise: 40
-Zoom: 1.0×
-Palette: White Hot
-Automatic calibration (NUC): every 60 seconds
+   Turn the potentiometer fully clockwise to power on the device.
+   System initialization time: ~6 seconds
+   
+   Default image settings:
+   Brightness: 70
+   Contrast: 64
+   Enhancement: 80
+   Denoise: 40
+   Zoom: 1.0×
+   Palette: White Hot
+   Automatic calibration (NUC): every 60 seconds
 
 2. Controls Overview
 Buttons:
