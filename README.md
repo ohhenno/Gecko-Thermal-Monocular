@@ -20,7 +20,7 @@ The TAC-640 is an open-source thermal monocular featuring a P6 thermal core, dig
       Palette: White Hot
       Automatic calibration (NUC): every 60 seconds
 
-2. Controls Overview
+2. Controls Overview 
       Buttons:     
       Zoom Button — front-most button
       Multi Button — center button
