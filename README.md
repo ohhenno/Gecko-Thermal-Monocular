@@ -7,48 +7,36 @@ The Gecko is an opensource thermal monocular. It features a 256 Mini2 Thermal Co
 <img width="300" height="400" alt="image" src="https://github.com/user-attachments/assets/2c80c966-5193-4ee8-84d6-4e7e728f41e4" />
 
 
-Thermal Core:
-https://shorturl.at/Mn3Rv (Mini2 256)
-https://www.hdaniee.com/p6-uc-series.html (P6 640)
+---
 
-Oled Screen:       
-https://www.aliexpress.us/item/3256809119244467.html (0.39")
+## 🧩 Parts Checklist
 
-NP18:              
-https://www.aliexpress.us/item/3256808208343549.html
+| ✓ | Component              | Notes                          | Link |
+|--|------------------------|--------------------------------|------|
+| ☐ | **Thermal Core (Mini2 256)** | Gecko Variant                  | https://shorturl.at/Mn3Rv |
+| ☐ | **Thermal Core (P6 640)**   | TAC-640 Variant | https://www.hdaniee.com/p6-uc-series.html |
+| ☐ | **0.39" OLED Display**     | Main display + Driver Board                 | https://www.aliexpress.us/item/3256809119244467.html |
+| ☐ | **NP18 Lens**              | Optics                        | https://www.aliexpress.us/item/3256808208343549.html |
+| ☐ | **ESP32-C3**               | Main controller               | https://www.aliexpress.us/item/3256808855552297.html |
+| ☐ | **5V Boost Converter**     | Steps battery → 5V            | https://www.amazon.com/dp/B0836J8LR4 |
+| ☐ | **18350 Battery**          | Power source                  | https://amazon.com/dp/B07QDDS64F |
+| ☐ | **Battery Contacts**       | Spring terminals              | https://amazon.com/dp/B0FSDNXKJY |
+| ☐ | **Rotary Pot (20k)**       | Brightness / contrast control | https://www.aliexpress.us/item/3256803337433740.html |
+| ☐ | **Buttons (x3)**           | Zoom / Mode / Record          | https://www.aliexpress.us/item/3256806708603327.html |
+| ☐ | **Runcam DVR (Optional)**  | Recording                     | https://www.aliexpress.us/item/3256809185467125.html |
+| ☐ | **MicroSD Extender**       | Required for DVR              | https://amazon.com/dp/B0D7YZ5PG3 |
+| ☐ | **M2.5 x 6 Bolts**         | Mounting hardware             | https://amazon.com/dp/B0GCSRG1WD |
+| ☐ | **Heat Set Inserts**       | Threaded inserts              | https://amazon.com/dp/B0D7YZ5PG3 |
+| ☐ | **Silicone Wire**          | Internal wiring               | https://amazon.com/dp/B01KQ2JNLI |
 
-5V Boost Converter:    
-https://www.amazon.com/dp/B0836J8LR4?ref=ppx_yo2ov_dt_b_fed_asin_title
+---
 
-esp32 (c3):        
-https://www.aliexpress.us/item/3256808855552297.html
+### 🧠 Notes
+- Choose **one thermal core** (Mini2 *or* P6 depending on your build)
+- DVR + MicroSD extender are **optional**, the code funcitons the same, the record button can be used for pallete switching, etc..
+- Everything else is required for a full build
 
-Runcam DVR (optional):        
-https://www.aliexpress.us/item/3256809185467125.html
-
-Buttons (3):       
-https://www.aliexpress.us/item/3256809185467125.htmlhttps://www.aliexpress.us/item/3256806708603327.html
-
-Dial (20k):        
-https://www.aliexpress.us/item/3256803337433740.html
-
-microsd extender (only required if using DVR):  
-https://amazon.com/dp/B0D7YZ5PG3
-
-heat inserts:      
-https://amazon.com/dp/B0D7YZ5PG3https
-
-m2.5 x 6 bolts:    
-https://amazon.com/dp/B0GCSRG1WD
-
-18350:             
-https://amazon.com/dp/B07QDDS64F
-
-power contacts:    
-https://amazon.com/dp/B0FSDNXKJY
-
-wire:              
-https://amazon.com/dp/B01KQ2JNLI
+---
 
 <img width="1429" height="1128" alt="image" src="https://github.com/user-attachments/assets/cf64fd9d-ef84-4fcf-8cc9-e876ee20d669" />
 
