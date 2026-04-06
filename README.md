@@ -1,11 +1,47 @@
 # TAC-640 (Upgraded Gecko)
 
-The TAC-640 is an open-source thermal monocular featuring a P6 thermal core, digital zoom, and video recording capability.
+The TAC-640 is an open-source thermal monocular featuring a P6 thermal core, digital zoom, and video recording capability. Special thanks to LupasWorax Gremlin and [JacobOTW](https://github.com/Jacob-OTW/BCOTI/tree/V2_Beta?tab=readme-ov-file) .
 
 The hardware platform is built around:
 - Hdaniee P6 thermal camera  
 - 0.39" micro OLED display  
 - NP18 lens  
+
+
+---
+
+## 🧩 Parts Checklist
+
+| ✓ | Component              | Notes                          | Price (USD) | Link |
+|--|------------------------|--------------------------------|-------------|------|
+| ☐ | **Thermal Core (Mini2 256)** | Gecko Variant                  | $120 | https://shorturl.at/Mn3Rv |
+| ☐ | **Thermal Core (P6 640)**   | TAC-640 Variant                | $420 | https://www.hdaniee.com/p6-uc-series.html |
+| ☐ | **0.39" OLED Display**     | Main display + driver          | $110 | https://www.aliexpress.us/item/3256809119244467.html |
+| ☐ | **NP18 Lens**              | Optics                        | $60 | https://www.aliexpress.us/item/3256808208343549.html |
+| ☐ | **ESP32-C3**               | Main controller               | $1 | https://www.aliexpress.us/item/3256808855552297.html |
+| ☐ | **5V Boost Converter**     | Steps battery → 5V            | $2 | https://www.amazon.com/dp/B0836J8LR4 |
+| ☐ | **18350 Battery**          | Power source                  | $15 | https://amazon.com/dp/B07QDDS64F |
+| ☐ | **Battery Contacts**       | Spring terminals              | $5 | https://amazon.com/dp/B0FSDNXKJY |
+| ☐ | **Rotary Pot (20k)**       | Brightness / contrast control | $2 | https://www.aliexpress.us/item/3256803337433740.html |
+| ☐ | **Buttons (x3)**           | Zoom / Mode / Record          | $2 | https://www.aliexpress.us/item/3256806708603327.html |
+| ☐ | **Runcam DVR (Optional)**  | Recording                     | $30 | https://www.aliexpress.us/item/3256809185467125.html |
+| ☐ | **MicroSD Extender**       | Required for DVR              | $10 | https://amazon.com/dp/B0D7YZ5PG3 |
+| ☐ | **M2.5 x 6 Bolts**         | Mounting hardware             | $2 | https://amazon.com/dp/B0GCSRG1WD |
+| ☐ | **Heat Set Inserts**       | Threaded inserts              | $10 | https://amazon.com/dp/B0D7YZ5PG3 |
+| ☐ | **Silicone Wire**          | Internal wiring               | $6 | https://amazon.com/dp/B01KQ2JNLI |
+
+---
+
+### 💰 Estimated Build Cost
+
+- **Gecko (Mini2 build):**  
+  $335  
+
+- **TAC-640 (P6 build):**  
+  $635  
+
+- **With DVR (adds DVR + MicroSD extender):**  
+  $40  
 
 ---
 
