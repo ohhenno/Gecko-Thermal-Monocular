@@ -3,8 +3,8 @@
 The Gecko is an open-source thermal monocular featuring the Mini2 256p thermal core, digital zoom, and video recording capability. Special thanks to LupasWorax Gremlin and [JacobOTW](https://github.com/Jacob-OTW/BCOTI/tree/V2_Beta?tab=readme-ov-file) .
 
 The hardware platform is built around:
-- Camera Core
-- ESP32 UART  
+- HdanieeCamera Core
+- ESP32 UART/GPIO Controls  
 - 0.39" micro OLED display  
 - NP18 lens  
 
