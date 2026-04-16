@@ -149,6 +149,10 @@ Turn the potentiometer fully clockwise to power on the device.
 
 ## ⚡ Quick Reference
 
+<table>
+<tr>
+<td valign="top">
+
 | Action              | Result                         |
 |--------------------|--------------------------------|
 | Zoom press         | Change zoom                    |
@@ -159,6 +163,29 @@ Turn the potentiometer fully clockwise to power on the device.
 | Knob               | Adjust brightness              |
 | Multi + knob       | Adjust contrast                |
 | Record press       | Toggle recording               |
+
+</td>
+<td valign="top">
+
+<pre>
+        Button Diagram
+
+        [ Camera Side ]
+               ↑
+           ┌─────────┐
+           │   ◉     │   ZOOM (Front)
+           │         │
+           │   ◉     │   MODE / MULTI
+           │         │
+           │   ◉     │   RECORD (Rear)
+           └─────────┘
+               ↓
+        [ Ocular Side ]
+</pre>
+
+</td>
+</tr>
+</table>
 
 ---
 
