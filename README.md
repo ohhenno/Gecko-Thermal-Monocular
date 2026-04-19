@@ -1,4 +1,4 @@
-# P6 640 Gecko
+#  Gecko P6 640
 
 The TAC-640 is an open-source thermal monocular featuring a P6 thermal core, digital zoom, and video recording capability. Special thanks to LupasWorax Gremlin and [JacobOTW](https://github.com/Jacob-OTW/BCOTI/tree/V2_Beta?tab=readme-ov-file) .
 
