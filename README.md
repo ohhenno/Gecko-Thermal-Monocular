@@ -1,4 +1,4 @@
-# Gecko
+# Gecko Mini2 256
 
 The Gecko is an open-source thermal monocular featuring the Mini2 256p thermal core, digital zoom, and video recording capability. Special thanks to LupasWorax Gremlin and [JacobOTW](https://github.com/Jacob-OTW/BCOTI/tree/V2_Beta?tab=readme-ov-file) .
 
