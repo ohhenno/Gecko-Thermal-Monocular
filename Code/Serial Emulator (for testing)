@@ -1,0 +1,339 @@
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
+#include "esp_timer.h"
+#include "driver/gpio.h"
+#include "esp_adc/adc_oneshot.h"
+
+// ---------------- GPIO ----------------
+#define ZOOM_BTN GPIO_NUM_9
+#define PALETTE_BTN GPIO_NUM_8
+#define FLASH_BTN GPIO_NUM_7
+#define MULTI_BTN GPIO_NUM_10
+#define POTI_PIN GPIO_NUM_4
+
+// ---------------- ADC ----------------
+adc_oneshot_unit_handle_t adc_handle;
+adc_channel_t adc_channel;
+
+// ---------------- STATE ----------------
+int zoom_index = 0;
+int zoom_steps[4] = {10, 13, 20, 40};
+
+int palette_index = 0;
+int brightness = 64;
+int contrast = 64;
+bool recording = false;
+
+int adc_val = 0;
+
+// button states
+bool last_zoom = false;
+bool last_palette = false;
+bool last_flash = false;
+
+// ---------------- ZOOM BUTTON STATE MACHINE ----------------
+bool zoom_pressed = false;
+bool zoom_hold_active = false;
+bool zoom_double_wait = false;
+
+int64_t zoom_press_time = 0;
+int64_t zoom_last_event_time = 0;
+
+// ---------------- MULTI BUTTON ----------------
+bool multi_pressed = false;
+bool nuc_triggered = false;
+int64_t multi_press_time = 0;
+
+// ---------------- DISPLAY STATE ----------------
+typedef struct
+{
+    int zoom_index;
+    int palette_index;
+    int brightness;
+    int contrast;
+    int adc_val;
+
+    bool zoom;
+    bool palette;
+    bool flash;
+    bool multi;
+
+    char last_event[64];
+
+} display_state_t;
+
+display_state_t last_display = {0};
+
+char last_event[64] = "None";
+
+// ---------------- HELPERS ----------------
+void set_event(const char *msg)
+{
+    snprintf(last_event, sizeof(last_event), "%s", msg);
+}
+
+bool display_changed(display_state_t *cur)
+{
+    if (memcmp(cur, &last_display, sizeof(display_state_t)) != 0)
+        return true;
+
+    return false;
+}
+
+// ---------------- SETUP ----------------
+void setup_gpio()
+{
+    gpio_config_t io_conf = {
+        .mode = GPIO_MODE_INPUT,
+        .pin_bit_mask =
+            (1ULL << ZOOM_BTN) |
+            (1ULL << PALETTE_BTN) |
+            (1ULL << FLASH_BTN) |
+            (1ULL << MULTI_BTN),
+        .pull_up_en = GPIO_PULLUP_ENABLE,
+    };
+    gpio_config(&io_conf);
+}
+
+void setup_adc()
+{
+    adc_unit_t unit;
+    adc_oneshot_io_to_channel(POTI_PIN, &unit, &adc_channel);
+
+    adc_oneshot_unit_init_cfg_t init_config = {
+        .unit_id = unit,
+    };
+    adc_oneshot_new_unit(&init_config, &adc_handle);
+
+    adc_oneshot_chan_cfg_t config = {
+        .bitwidth = ADC_BITWIDTH_DEFAULT,
+        .atten = ADC_ATTEN_DB_12,
+    };
+    adc_oneshot_config_channel(adc_handle, adc_channel, &config);
+}
+
+// ---------------- MAIN LOOP ----------------
+void loop_task(void *pvParameters)
+{
+    static int last_adc = 0;
+
+    while (1)
+    {
+        int64_t now = esp_timer_get_time();
+
+        bool zoom = (gpio_get_level(ZOOM_BTN) == 0);
+        bool palette = (gpio_get_level(PALETTE_BTN) == 0);
+        bool flash = (gpio_get_level(FLASH_BTN) == 0);
+        bool multi = (gpio_get_level(MULTI_BTN) == 0);
+
+        // -------- ADC --------
+        int raw_adc;
+        adc_oneshot_read(adc_handle, adc_channel, &raw_adc);
+
+        // smooth ADC
+        adc_val = (raw_adc * 2 + last_adc) / 3;
+
+        // -------- ZOOM BUTTON (P6 LOGIC) --------
+        if (zoom && !zoom_pressed)
+        {
+            zoom_pressed = true;
+            zoom_press_time = now;
+            zoom_hold_active = false;
+
+            zoom_index = (zoom_index + 1) % 4;
+
+            char buf[64];
+            snprintf(buf, sizeof(buf), "UART: ZOOM %.1fx", zoom_steps[zoom_index] / 10.0);
+            set_event(buf);
+        }
+
+        if (!zoom && zoom_pressed)
+        {
+            zoom_pressed = false;
+
+            int64_t duration = now - zoom_press_time;
+
+            if (duration < 300000)
+            {
+                if (zoom_double_wait && (now - zoom_last_event_time < 400000))
+                {
+                    set_event("UART: BRIGHTNESS DOWN");
+                    zoom_double_wait = false;
+                }
+                else
+                {
+                    zoom_double_wait = true;
+                    zoom_last_event_time = now;
+                }
+            }
+
+            zoom_hold_active = false;
+        }
+
+        // HOLD = brightness up (repeat)
+        if (zoom_pressed)
+        {
+            int64_t held = now - zoom_press_time;
+
+            if (!zoom_hold_active && held > 800000)
+            {
+                set_event("UART: BRIGHTNESS UP (START)");
+                zoom_hold_active = true;
+                zoom_last_event_time = now;
+            }
+
+            if (zoom_hold_active && (now - zoom_last_event_time > 800000))
+            {
+                set_event("UART: BRIGHTNESS UP (REPEAT)");
+                zoom_last_event_time = now;
+            }
+        }
+
+        if (zoom_double_wait && (now - zoom_last_event_time > 500000))
+        {
+            zoom_double_wait = false;
+        }
+
+        // -------- PALETTE BUTTON --------
+        if (palette && !last_palette)
+        {
+            palette_index = (palette_index + 1) % 6;
+
+            char buf[64];
+            snprintf(buf, sizeof(buf), "UART: PALETTE %d", palette_index);
+            set_event(buf);
+        }
+
+        // -------- FLASH BUTTON --------
+        if (flash && !last_flash)
+        {
+            recording = !recording;
+            set_event(recording ? "UART: RECORD START" : "UART: RECORD STOP");
+        }
+
+        // -------- MULTI BUTTON --------
+        if (multi && !multi_pressed)
+        {
+            multi_pressed = true;
+            multi_press_time = now;
+            nuc_triggered = false;
+        }
+
+        if (!multi && multi_pressed)
+        {
+            multi_pressed = false;
+
+            if (!nuc_triggered)
+            {
+                palette_index = (palette_index + 1) % 6;
+
+                char buf[64];
+                snprintf(buf, sizeof(buf), "UART: PALETTE INDEX %d", palette_index);
+                set_event(buf);
+            }
+        }
+
+        if (multi && !nuc_triggered && (now - multi_press_time > 3000000))
+        {
+            set_event("UART: NUC TRIGGER");
+            nuc_triggered = true;
+        }
+
+        // -------- ADC CONTROL --------
+        if (abs(adc_val - last_adc) > 10)
+        {
+            if (multi)
+            {
+                contrast = (adc_val * 100) / 4095;
+
+                char buf[64];
+                snprintf(buf, sizeof(buf), "UART: CONTRAST %d", contrast);
+                set_event(buf);
+            }
+            else
+            {
+                brightness = (adc_val * 100) / 4095;
+
+                char buf[64];
+                snprintf(buf, sizeof(buf), "UART: BRIGHTNESS %d", brightness);
+                set_event(buf);
+            }
+        }
+
+        last_adc = adc_val;
+
+        last_zoom = zoom;
+        last_palette = palette;
+        last_flash = flash;
+
+        // -------- DISPLAY UPDATE (ONLY ON CHANGE) --------
+        display_state_t cur = {
+            .zoom_index = zoom_index,
+            .palette_index = palette_index,
+            .brightness = brightness,
+            .contrast = contrast,
+            .adc_val = adc_val,
+            .zoom = zoom,
+            .palette = palette,
+            .flash = flash,
+            .multi = multi,
+        };
+
+        snprintf(cur.last_event, sizeof(cur.last_event), "%s", last_event);
+
+        if (display_changed(&cur))
+        {
+            last_display = cur;
+
+            printf("\033[2J\033[H");
+
+            printf("==== CAMERA CONTROL EMULATOR ====\n\n");
+
+            printf("ZOOM: %.1fx\n", zoom_steps[zoom_index] / 10.0);
+            printf("PALETTE INDEX: %d\n", palette_index);
+            printf("RECORDING: %s\n\n", recording ? "ON" : "OFF");
+
+            printf("BRIGHTNESS: %d\n", brightness);
+            printf("CONTRAST:   %d\n\n", contrast);
+
+            printf("ADC: %d\n\n", adc_val);
+
+            printf("BUTTONS:\n");
+            printf("ZOOM:    %s\n", zoom ? "PRESSED" : "IDLE");
+            printf("PALETTE: %s\n", palette ? "PRESSED" : "IDLE");
+            printf("FLASH:   %s\n", flash ? "PRESSED" : "IDLE");
+            printf("MULTI:   %s\n\n", multi ? "PRESSED" : "IDLE");
+
+            printf("LAST EVENT:\n%s\n\n", last_event);
+
+            printf("Controls:\n");
+            printf("- Zoom press = zoom cycle\n");
+            printf("- Zoom hold = brightness up\n");
+            printf("- Zoom double = brightness down\n");
+            printf("- Multi press = palette cycle\n");
+            printf("- Multi hold = NUC\n");
+            printf("- Turn pot = brightness\n");
+            printf("- Multi + pot = contrast\n");
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(80));
+    }
+}
+
+// ---------------- MAIN ----------------
+void app_main(void)
+{
+    setup_gpio();
+    setup_adc();
+
+    printf("\n=== CAMERA CONTROL EMULATOR STARTED ===\n");
+
+    vTaskDelay(pdMS_TO_TICKS(1000));
+
+    xTaskCreate(loop_task, "loop", 4096, NULL, 5, NULL);
+}
