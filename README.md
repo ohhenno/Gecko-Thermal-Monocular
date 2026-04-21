@@ -164,4 +164,8 @@ Turn the potentiometer fully clockwise to power on the device.
 ## 🧠 System Diagram / Reference
 
 <img width="1419" height="1121" alt="image" src="https://github.com/user-attachments/assets/a7d66be6-ec58-4956-b5fc-cf4a2bdffc42" />
+<img width="751" height="909" alt="image" src="https://github.com/user-attachments/assets/e088bb13-eb65-4838-95fe-62a3319def77" />
+<img width="659" height="923" alt="image" src="https://github.com/user-attachments/assets/56512ef5-097a-4e80-a9ca-13c8859001b8" />
+
+
 
