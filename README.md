@@ -28,7 +28,7 @@ The hardware platform is built around:
 | ☐ | **Runcam DVR (Optional)**  | Recording                     | $30 | https://www.aliexpress.us/item/3256809185467125.html |
 | ☐ | **MicroSD Extender**       | Required for DVR              | $10 | https://amazon.com/dp/B0D7YZ5PG3 |
 | ☐ | **M2.5 x 6 Bolts**         | Mounting hardware             | $2 | https://amazon.com/dp/B0GCSRG1WD |
-| ☐ | **Heat Set Inserts**       | Threaded inserts              | $10 | https://amazon.com/dp/B0D7YZ5PG3 |
+| ☐ | **Heat Set Inserts**       | Threaded inserts              | $10 | [https://amazon.com/dp/B0D7YZ5PG3](https://shorturl.at/LMswM) |
 | ☐ | **Silicone Wire**          | Internal wiring               | $6 | https://amazon.com/dp/B01KQ2JNLI |
 
 ---
