@@ -167,5 +167,11 @@ Turn the potentiometer fully clockwise to power on the device.
 <img width="751" height="909" alt="image" src="https://github.com/user-attachments/assets/e088bb13-eb65-4838-95fe-62a3319def77" />
 <img width="659" height="923" alt="image" src="https://github.com/user-attachments/assets/56512ef5-097a-4e80-a9ca-13c8859001b8" />
 
+---
+
+Battery Life: 1hr 36mins
+<img width="1470" height="894" alt="image" src="https://github.com/user-attachments/assets/1df06dc3-f39f-43ff-851b-6055be1f7325" />
+
+
 
 
