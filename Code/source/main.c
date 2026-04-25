@@ -18,6 +18,8 @@
 #define UART_PORT UART_NUM_1
 #define UART_TX GPIO_NUM_1
 #define UART_RX GPIO_NUM_2
+#define BRIGHT_UP GPIO_NUM_5
+#define BRIGHT_DOWN GPIO_NUM_6
 
 #define POTI_PIN GPIO_NUM_4
 
@@ -27,6 +29,15 @@
 #define PALETTE_BTN GPIO_NUM_8
 
 bool recording = false;
+
+// -------- SIM BUTTON STATE --------
+int64_t zoom_press_time = 0;
+int64_t last_repeat_time = 0;
+
+bool zoom_hold_active = false;
+bool zoom_double_wait = false;
+
+int64_t last_release_time = 0;
 
 // ---------------- CONFIG ----------------
 #define BUTTON_DEBOUNCE_US 20000
@@ -38,7 +49,7 @@ int palette_index = 0;
 uint8_t palette_modes[6] = {0, 1, 2, 3, 4, 5};
 
 int zoom_index = 0;
-int zoom_steps[3] = {10, 20, 40};
+int zoom_steps[4] = {10, 13, 20, 40};
 int zoom_level = 10;
 
 int brightness = 64;
@@ -55,6 +66,26 @@ bool last_multi_btn = false;
 int64_t press_time = 0;
 bool nuc_triggered = false;
 
+// ----------------------ZOOM BRIGHTNESS BUTTON HELPERS------------ 
+void sim_gpio_init()
+{
+    gpio_config_t io_conf = {
+        .pin_bit_mask = (1ULL << BRIGHT_UP) | (1ULL << BRIGHT_DOWN),
+        .mode = GPIO_MODE_OUTPUT_OD,
+        .pull_up_en = GPIO_PULLUP_DISABLE,
+    };
+    gpio_config(&io_conf);
+
+    gpio_set_level(BRIGHT_UP, 1);
+    gpio_set_level(BRIGHT_DOWN, 1);
+}
+
+void pulse_gpio(gpio_num_t pin, int ms)
+{
+    gpio_set_level(pin, 0);
+    vTaskDelay(pdMS_TO_TICKS(ms));
+    gpio_set_level(pin, 1);
+}
 // ---------------- UART ----------------
 void uart_init()
 {
@@ -197,14 +228,76 @@ void loop_task(void *pvParameters)
         // -------- ZOOM --------
         bool zoom_btn = (gpio_get_level(ZOOM_BTN) == 0);
 
+        // -------- PRESS START --------
         if (zoom_btn && !last_zoom_btn)
         {
-            zoom_index = (zoom_index + 1) % 3;
+            zoom_press_time = now;
+            zoom_hold_active = false;
+
+            // KEEP ORIGINAL ZOOM FUNCTION
+            zoom_index = (zoom_index + 1) % 4;
             zoom_level = zoom_steps[zoom_index];
 
             P6_set_zoom(zoom_level);
             ESP_LOGI(TAG, "Zoom %.1fx", zoom_level / 10.0);
         }
+
+        // -------- RELEASE --------
+        if (!zoom_btn && last_zoom_btn)
+        {
+            int64_t press_duration = now - zoom_press_time;
+
+            // DOUBLE CLICK DETECT
+            if (press_duration < 250000)
+            {
+                if (zoom_double_wait && (now - last_release_time < 400000))
+                {
+                    pulse_gpio(BRIGHT_DOWN, 60);
+                    ESP_LOGI(TAG, "Brightness DOWN");
+
+                    zoom_double_wait = false;
+                }
+                else
+                {
+                    zoom_double_wait = true;
+                    last_release_time = now;
+                }
+            }
+
+            zoom_hold_active = false;
+        }
+
+        // -------- HOLD --------
+        if (zoom_btn)
+        {
+            int64_t held_time = now - zoom_press_time;
+
+            // first trigger at 1s
+            if (!zoom_hold_active && held_time > 1000000)
+            {
+                pulse_gpio(BRIGHT_UP, 60);
+                ESP_LOGI(TAG, "Brightness UP (start)");
+
+                zoom_hold_active = true;
+                last_repeat_time = now;
+            }
+
+            // repeat every 1s
+            if (zoom_hold_active && (now - last_repeat_time > 1000000))
+            {
+                pulse_gpio(BRIGHT_UP, 60);
+                ESP_LOGI(TAG, "Brightness UP (repeat)");
+
+                last_repeat_time = now;
+            }
+        }
+
+        // -------- DOUBLE CLICK TIMEOUT --------
+        if (zoom_double_wait && (now - last_release_time > 500000))
+        {
+            zoom_double_wait = false;
+        }
+
         last_zoom_btn = zoom_btn;
 
         // -------- PALETTE TOGGLE --------
@@ -310,19 +403,20 @@ void app_main(void)
         .pull_up_en = GPIO_PULLUP_ENABLE,
     };
     gpio_config(&io_conf);
+    sim_gpio_init();
 
     uart_init();
 
-    vTaskDelay(pdMS_TO_TICKS(2500));
+    vTaskDelay(pdMS_TO_TICKS(2000));
 
     // 🔥 Improved defaults
     P6_set_palette_index(0);
-    P6_set_zoom(10);
-    P6_set_brightness(64);
+    P6_set_zoom(13);
+    P6_set_brightness(70);
     P6_set_contrast(64);
-    P6_set_denoise(64);
-    P6_set_enhancement(10);
-    P6_set_auto_nuc(30000);
+    P6_set_denoise(40);
+    P6_set_enhancement(80);
+    P6_set_auto_nuc(60000);
 
     xTaskCreate(loop_task, "loop", 8192, NULL, 5, NULL);
 }
