@@ -1,4 +1,4 @@
-# Gecko 256
+# Gecko-Nano 256
 
 The Gecko-nano is an open-source thermal monocular featuring the Mini2 256p thermal core, designed to be simple and require no coding and minimal sautering and assembly.
 
