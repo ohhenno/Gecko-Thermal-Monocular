@@ -6,7 +6,7 @@ The hardware platform is built around:
 - Hdaniee P6 thermal camera  
 - 0.39" micro OLED display  
 - NP18 lens  
-
+See MINI256 branch for J-arm 3d files.
 
 ---
 
