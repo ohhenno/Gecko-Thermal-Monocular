@@ -52,6 +52,8 @@ The hardware platform is built around:
 <img width="300" height="400" src="https://github.com/user-attachments/assets/87d28182-701c-433f-8b85-3effc9024394" />
 <img width="300" height="400" src="https://github.com/user-attachments/assets/e37db837-70ba-407e-aedf-c7d0c0c3d4d8" />
 <img width="300" height="400" src="https://github.com/user-attachments/assets/2c80c966-5193-4ee8-84d6-4e7e728f41e4" />
+<img width="911" height="1126" alt="image" src="https://github.com/user-attachments/assets/949ea6b7-461d-42d4-bfbf-0aa8e8c2bb1d" />
+
 
 ---
 
